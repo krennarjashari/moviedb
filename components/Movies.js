@@ -14,7 +14,7 @@ export function Movies(movies) {
                         <br/>
                         <span><i class="bi bi-star"></i>${movie.vote_average}</span>
                     </div>
-                    <a href="#" class="btn btn-sm btn-outline-primary"><i class="bi bi-arrow-right"></i></a>
+                    <a href="#" class="btn btn-sm btn-outline-secondary"><i class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
         </div>
