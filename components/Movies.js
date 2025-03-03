@@ -12,9 +12,9 @@ export function Movies(movies) {
                     <div>
                         <span><i class="bi bi-calendar"></i>${movie.release_date}</span>
                         <br/>
-                        <span><i class="bi bi-star"></i>${movie.vote_average}</span>
+                        <span><i class="bi bi-star"></i>${movie.vote_average} / 10</span>
                     </div>
-                    <a href="#" class="btn btn-sm btn-outline-secondary"><i class="bi bi-arrow-right"></i></a>
+                    <a href="movie.html?id=${movie.id}" class="btn btn-sm btn-outline-secondary"><i class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
         </div>

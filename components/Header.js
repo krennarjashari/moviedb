@@ -8,10 +8,13 @@ export function Header() {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="home.html">Home</a>
+          <a class="nav-link" href="home.html"><i class="bi bi-house"></i>Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link href="about.html">About</a>
+          <a class="nav-link" href="favorites.html"><i class="bi bi-heart-fill"></i> Favorites</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html"><i class="bi bi-info-circle"></i>About</a>
         </li>
       </ul>
         <button class="btn btn-outline-success ms-4" id="search-btn"><i class="bi bi-search"></i></button>
