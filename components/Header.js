@@ -1,4 +1,6 @@
 export function Header() {
+  const current_page = window.location.pathname;
+
   return `<nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container">
     <a class="navbar-brand" href="#">moviedb</a>
@@ -17,7 +19,13 @@ export function Header() {
           <a class="nav-link" href="about.html"><i class="bi bi-info-circle"></i>About</a>
         </li>
       </ul>
-        <button class="btn btn-outline-success ms-4" id="search-btn"><i class="bi bi-search"></i></button>
+      ${
+        current_page === "/home.html"
+          ? `<button class="btn btn-outline-success ms-4" id="search-btn">
+            <i class="bi bi-search"></i>
+          </button>`
+          : ""
+      }
     </div>
   </div>
 </nav>`;

@@ -28,6 +28,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="./assets/js/dynamicListener.min.js"></script>
     <script type="module">
       import { Header } from "./components/Header.js";
       import { Movie } from "./components/Movie.js";
@@ -36,6 +37,7 @@
 
       const urlParams = new URLSearchParams(window.location.search);
       const id = urlParams.get("id");
+      let movie = {};
 
       axios
         .get(
@@ -43,12 +45,42 @@
         )
         .then((resp) => {
           if (resp.status === 200) {
-            const movie = resp.data;
+            movie = resp.data;
             console.log("movie here", movie);
 
             document.querySelector("#movie div").innerHTML = Movie(movie);
           }
         });
+
+      addDynamicEventListener(
+        document.body,
+        "click",
+        "#add-to-favorites",
+        (e) => {
+          const favorites = JSON.parse(localStorage.getItem("favorites"));
+
+          if (favorites === null) {
+            localStorage.setItem("favorites", JSON.stringify([movie]));
+          } else {
+            localStorage.setItem(
+              "favorites",
+              JSON.stringify([...favorites, movie])
+            );
+          }
+          alert(`'${movie.title}' was added to your favorites list.`);
+        }
+      );
+
+      addDynamicEventListener(document.body, "click", "#share", (e) => {
+        navigator.clipboard.writeText(window.location.href).then(
+          function () {
+            alert("Copying to clipboard was successful!");
+          },
+          function (err) {
+            alert("Could not copy text: ", err);
+          }
+        );
+      });
     </script>
   </body>
 </html>
